@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MailboxForm = ({ addBox }) => {
   const [boxOwner, setBoxOwner] = useState('');
   const [boxSize, setBoxSize] = useState('Small');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,6 +15,7 @@ const MailboxForm = ({ addBox }) => {
     addBox(newBox);
     setBoxOwner('');
     setBoxSize('Small');
+    navigate('/mailboxes'); // Redirigir a la lista de buzones
   };
 
   return (
